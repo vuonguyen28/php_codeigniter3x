@@ -54,4 +54,6 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['api/books'] = 'api/BookController/index'; 
-$route['api/books/(:num)'] = 'api/BookController/view/$1';  
+$route['api/book/(:num)'] = 'api/BookController/showBookById/$1'; 
+$route['api/books'] = 'api/BookController/addBook';
+$route['api/book/update/(:num)'] = 'api/BookController/updateBook/$1';

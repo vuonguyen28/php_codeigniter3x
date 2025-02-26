@@ -1,7 +1,7 @@
 <?php
 
 namespace chriskacerguis\RestServer;
-
+use chriskacerguis\RestServer\Format;
 use Exception;
 use stdClass;
 
@@ -1811,10 +1811,12 @@ class RestController extends \CI_Controller
         // Check if the string don't compare (case-insensitive)
         if (strcasecmp($digest['response'], $valid_response) !== 0) {
             // Display an error response
+           
             $this->response([
                 $this->config->item('rest_status_field_name')  => false,
                 $this->config->item('rest_message_field_name') => $this->lang->line('text_rest_invalid_credentials'),
             ], self::HTTP_UNAUTHORIZED);
+
         }
     }
 
