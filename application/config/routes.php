@@ -53,7 +53,10 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['api/books'] = 'api/BookController/index'; 
-$route['api/book/(:num)'] = 'api/BookController/showBookById/$1'; 
-$route['api/books'] = 'api/BookController/addBook';
-$route['api/book/update/(:num)'] = 'api/BookController/updateBook/$1';
+$route['api/show_books_all'] = 'api/BookController/show_books_all'; 
+$route['api/show_book_by_id/(:num)'] = 'api/BookController/show_book_by_id/$1'; 
+$route['api/add_book'] = 'api/BookController/add_book';
+$route['api/book/edit_book/(:num)'] = 'api/BookController/update_book/$1';
+
+
+$route['api/add_invoice'] = 'api/invoice_controller/add_invoice';

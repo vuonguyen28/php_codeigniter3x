@@ -6,7 +6,13 @@ class Book_model extends CI_Model {
         $this->db->select('books.*, categories.name AS category_name');
         $this->db->from('books');
         $this->db->join('categories', 'books.category_id = categories.id', 'left');
-        return $this->db->get()->result();
+        $query = $this->db->get();
+        
+        if($query->num_rows() >0){
+            return $query->result();
+        }else{
+            return [];
+        }
     }
 
     public function get_book($id) {
@@ -14,7 +20,13 @@ class Book_model extends CI_Model {
         $this->db->from('books');
         $this->db->join('categories', 'books.category_id = categories.id', 'left');
         $this->db->where('books.id', $id);
-        return $this->db->get()->row();
+        $query =  $this->db->get();
+
+        if($query->num_rows() >0){
+            return $query->row();
+        }else{
+            return [];
+        }
     }
 
     public function add_book($data) {
